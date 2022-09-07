@@ -1,0 +1,342 @@
+{
+	"info": {
+		"_postman_id": "9730762b-fae8-4b72-b29a-25477cca3efe",
+		"name": "collecion-Mutantes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "generar JWT",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "username",
+						"value": "admin",
+						"type": "default"
+					},
+					{
+						"key": "password",
+						"value": "admin",
+						"type": "default"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "default"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "solicitar autorizacion rol user o admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjoiUk9MRV9BRE1JTixST0xFX1VTRVIiLCJleHAiOjE2NjI1MjQ5MDR9.dBFuJTsJYFA_1m5yc7ye3uGriRnI4be3ibHG6Avygtj_CIEfM0tI7IqJD1F7h5SycbZLDKSpxPHkoUp6J3jJPA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertar mutantes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjoiUk9MRV9BRE1JTixST0xFX1VTRVIiLCJleHAiOjE2NjI1MjQyNjR9.EnenQ-CHNF2VklWUvmor8Bbytl98SaIFN-bNA1M_lKMrA9mDeZZdRwHMPxHew8h0Ua1cxsDECfedrxa-5cWfJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"name\" : \"Superman\",\r\n    \"grupo\" : \"Heroe\",\r\n    \"location\" : \"EEUU\",\r\n    \"condicion\" : \"Libertad\",\r\n    \"poder\" : \"Super Fuerza\"\r\n    \r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/mutante/insertar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mutante",
+						"insertar"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "user",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "03082e86-0d73-4d8a-8928-8d14633f798f",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultar mutantes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjoiUk9MRV9BRE1JTixST0xFX1VTRVIiLCJleHAiOjE2NjI1MjQ5MDR9.dBFuJTsJYFA_1m5yc7ye3uGriRnI4be3ibHG6Avygtj_CIEfM0tI7IqJD1F7h5SycbZLDKSpxPHkoUp6J3jJPA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/mutante",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mutante"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "user",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "03082e86-0d73-4d8a-8928-8d14633f798f",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultar mutantes por nombre",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjoiUk9MRV9BRE1JTixST0xFX1VTRVIiLCJleHAiOjE2NjI1MjQyNjR9.EnenQ-CHNF2VklWUvmor8Bbytl98SaIFN-bNA1M_lKMrA9mDeZZdRwHMPxHew8h0Ua1cxsDECfedrxa-5cWfJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/mutante/name?name=Thor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mutante",
+						"name"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "user",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "03082e86-0d73-4d8a-8928-8d14633f798f",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "Thor"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consultar mutantes por ubicacion",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjoiUk9MRV9BRE1JTixST0xFX1VTRVIiLCJleHAiOjE2NjI1MjQyNjR9.EnenQ-CHNF2VklWUvmor8Bbytl98SaIFN-bNA1M_lKMrA9mDeZZdRwHMPxHew8h0Ua1cxsDECfedrxa-5cWfJQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/mutante/location?location=Tierra",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mutante",
+						"location"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "user",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "03082e86-0d73-4d8a-8928-8d14633f798f",
+							"disabled": true
+						},
+						{
+							"key": "location",
+							"value": "Tierra"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
